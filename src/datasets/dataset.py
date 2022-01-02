@@ -211,6 +211,7 @@ def collate_unsuperv(data, max_len=None, mask_compensation=False):
 
     # Stack and pad features and masks (convert 2D to 3D tensors, i.e. add batch dimension)
     lengths = [X.shape[0] for X in features]  # original sequence length for each time series
+    print("original sequence length for each time series=",len(lengths))
     if max_len is None:
         max_len = max(lengths)
     X = torch.zeros(batch_size, max_len, features[0].shape[-1])  # (batch_size, padded_length, feat_dim)
