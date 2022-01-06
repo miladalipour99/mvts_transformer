@@ -112,7 +112,7 @@ def fold_evaluate(dataset, model, device, loss_module, target_feats, config, dat
 
         loader = DataLoader(dataset=dataset,
                             batch_size=config['batch_size'],
-                            shuffle=False,
+                            shuffle=True,
                             num_workers=config['num_workers'],
                             pin_memory=True,
                             collate_fn=lambda x: collate_unsuperv(x, max_len=config['max_seq_len']))
